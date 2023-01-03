@@ -1,24 +1,43 @@
-# README
+<a name="consultancy_fe"></a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/josephhilby/consultancy_fe">
+    <img src="lib/assets/consultancy.png" alt="Logo" width="400" height="400">
+  </a>
 
-Things you may want to cover:
+<h1 align="center">consultancy_fe</h1>
+</div>
 
-* Ruby version
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-* System dependencies
+[...]
 
-* Configuration
+### Built With
 
-* Database creation
+* Ruby ~ 2.7.4
+* Rails ~ 5.2.8
 
-* Database initialization
+<!-- Phases -->
+## Phases
 
-* How to run the test suite
+[Turing Project Requirements](https://backend.turing.edu/module3/projects/consultancy/project_goals)
 
-* Services (job queues, cache servers, search engines, etc.)
+<!-- CONTACT -->
+## Contact
 
-* Deployment instructions
+Alex M. -
 
-* ...
+Bryan K. -
+
+Joseph H. - Joseph.Hilby@gmail.com
+
+Mostafa S. -
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* Turing School of Software Design: [https://turing.edu/](https://turing.edu/)
+
