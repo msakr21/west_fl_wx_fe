@@ -245,6 +245,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -270,8 +271,19 @@
           1,
           null
         ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1672802293
+    "timestamp": 1672810869
   }
 }
