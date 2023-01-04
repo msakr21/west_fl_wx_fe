@@ -1,0 +1,277 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/application.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/boot.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/environments/test.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/application_controller_renderer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/assets.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/backtrace_silencers.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/content_security_policy.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/cookies_serializer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/mime_types.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/initializers/wrap_parameters.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/controllers/pages_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1672802293
+  }
+}
