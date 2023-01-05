@@ -99,15 +99,15 @@ TBD (heroku link here)
   <tr>
     <td>
       <a href="https://github.com/AlexMR-93">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/<user>/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/alex-m-b25902240/">LinkedIn</a>
     </td>
     <td>
       <a href="https://github.com/bkeener7">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/<user>/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/bkeener/">LinkedIn</a>
     </td>
     <td>
       <a href="https://github.com/efuchsman">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/<user>/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/elifuchsman/">LinkedIn</a>
     </td>
     <td>
       <a href="https://github.com/josephhilby">GitHub</a><br>
@@ -115,7 +115,7 @@ TBD (heroku link here)
     </td>
     <td>
       <a href="https://github.com/msakr21">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/<user>/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/mostafasakr16">LinkedIn</a>
     </td>
   </tr>
 </table>
