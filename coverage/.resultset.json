@@ -246,6 +246,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -278,12 +279,35 @@
           1,
           null,
           1,
+          1,
+          1,
           null,
           null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/alexmorareyes/turing/3mod/projects/west_fl_wx_fe/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       }
     },
-    "timestamp": 1672810869
+    "timestamp": 1672882384
   }
 }

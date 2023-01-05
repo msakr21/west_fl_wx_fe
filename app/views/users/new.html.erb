@@ -1,26 +1,25 @@
 <h1>New User Form</h1>
 <%= form_with url: "/users", local: true, method: :post do |form| %>
-
   <p><%= form.label :first_name, "First name:" %>
   <%= form.text_field :first_name %>
   <%= form.label :last_name, "Last name:" %>
   <%= form.text_field :last_name %>
   <%= form.label :email, "Email:" %>
   <%= form.text_field :email %> </p>
-
-  <%= form.check_box "plan" %>
-  <%= form.label :plan %>
-  <%= form.check_box "car" %>
+  <%= form.hidden_field :plan, value: true %>
+  <%= form.hidden_field :prep_kit, value: true %>
+  <%= form.hidden_field :records, value: true %>
+  <%= hidden_field_tag "car", false %>
+  <%= check_box_tag "car", checked: true %>
   <%= form.label :car %>
-  <%= form.check_box "house" %>
+  <%= hidden_field_tag "house", false%>
+  <%= check_box_tag "house", checked: true %>
   <%= form.label :house %>
-  <%= form.check_box "prep kits" %>
-  <%= form.label :prep_kits %>
-  <%= form.check_box "records" %>
-  <%= form.label :records %>
-  <%= form.check_box "pets" %>
+  <%= check_box_tag "pets", checked: true %>
+  <%= hidden_field_tag "pets", false %>
   <%= form.label :pets %>
-  <%= form.check_box "kids" %>
+  <%= hidden_field_tag "kids", false %>
+  <%= check_box_tag "kids", checked: true %>
   <%= form.label :kids %>
   <%= form.submit "Submit"%>
 <%end %>
