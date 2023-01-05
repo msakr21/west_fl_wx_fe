@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "/users/:id", to: 'users#show'
   post"/users", to: 'users#create'
   get "/login", to: 'pages#login'
+  get "/auth/google_oauth2/callback", to: 'sessions#create'
+  get "/dashboard", to: 'dashboard#show'
 end
