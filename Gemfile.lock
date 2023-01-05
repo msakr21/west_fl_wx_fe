@@ -252,7 +252,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (2.4.0)
+    unicode-display_width (2.4.1)
     vcr (6.1.0)
     webmock (3.18.1)
       addressable (>= 2.8.0)
