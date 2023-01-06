@@ -1,11 +1,11 @@
 <h1>New User Form</h1>
 <%= form_with url: "/users", local: true, method: :post do |form| %>
   <p><%= form.label :first_name, "First name:" %>
-  <%= form.text_field :first_name %>
+  <%= form.text_field :first_name, value: @first_name %>
   <%= form.label :last_name, "Last name:" %>
-  <%= form.text_field :last_name %>
+  <%= form.text_field :last_name, value: @last_name %>
   <%= form.label :email, "Email:" %>
-  <%= form.text_field :email %> </p>
+  <%= form.text_field :email, value: @email, :readonly => true %> </p>
   <%= form.hidden_field :plan, value: true %>
   <%= form.hidden_field :prep_kit, value: true %>
   <%= form.hidden_field :records, value: true %>
@@ -15,8 +15,8 @@
   <%= hidden_field_tag "house", false%>
   <%= check_box_tag "house", checked: true %>
   <%= form.label :house %>
-  <%= check_box_tag "pets", checked: true %>
   <%= hidden_field_tag "pets", false %>
+  <%= check_box_tag "pets", checked: true %>
   <%= form.label :pets %>
   <%= hidden_field_tag "kids", false %>
   <%= check_box_tag "kids", checked: true %>

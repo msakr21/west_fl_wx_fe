@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
   def new
+    user = User.find_by_id(session[:user_id])
+    @email = user.email
+    @first_name = user.first_name
+    @last_name = user.last_name
   end
 
   def create
-    user = User.create!(user_params)
+    user = User.update(user_params)
     redirect_to user_path(user)
   end
 
   def show
-    User.find(params[:id])
+    user = User.find(params[:id])
   end
 
   private
