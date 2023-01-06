@@ -1,3 +1,3 @@
 class PrepKit < ApplicationRecord
-  belongs_to :users
+  belongs_to :user, dependent: :destroy
 end
