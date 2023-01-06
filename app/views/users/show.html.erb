@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %> Checklist </h1>
+
+<div id='base-checklist'>
+  <% if @user.plan? %>
+    <%=  form_with model: @user.plan, local: true do |f| %>
+
+    <% end %>
+  <% end %>
+</div>
