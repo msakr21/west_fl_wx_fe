@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :car do
     gas { false }
     maintenance { false }
-    user { nil }
+    association :user, factory: :user
   end
 end

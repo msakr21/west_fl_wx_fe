@@ -4,6 +4,6 @@ FactoryBot.define do
     first_aid_kit { false }
     toiletries { false }
     cash { false }
-    users { nil }
+    association :user, factory: :user
   end
 end

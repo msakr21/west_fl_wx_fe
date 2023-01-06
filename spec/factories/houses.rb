@@ -4,6 +4,6 @@ FactoryBot.define do
     clear_yard { false }
     shutters { false }
     fill_bathtub { false }
-    user { nil }
+    association :user, factory: :user
   end
 end

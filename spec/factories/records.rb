@@ -3,6 +3,6 @@ FactoryBot.define do
     medical { false }
     id { false }
     birth_cert { false }
-    user { nil }
+    association :user, factory: :user
   end
 end

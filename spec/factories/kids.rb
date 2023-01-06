@@ -4,6 +4,6 @@ FactoryBot.define do
     toys { false }
     clothing { false }
     medical_records { false }
-    user { nil }
+    association :user, factory: :user
   end
 end

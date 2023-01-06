@@ -5,6 +5,6 @@ FactoryBot.define do
     food_water_bowls { false }
     crate { false }
     toys { false }
-    user { nil }
+    association :user, factory: :user
   end
 end
