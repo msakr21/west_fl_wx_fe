@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
-  # def new
-  #   user = User.find_by_id(session[:user_id])
-  #   @email = user.email
-  #   @first_name = user.first_name
-  #   @last_name = user.last_name
-  # end
+  skip_before_action :check_login, only: [:create, :new]
+  
   def new
   end
 
@@ -20,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :car, :house, :kids, :pets, :records, :plan, :prep_kit)
+    params.permit(:first_name, :last_name, :email, :car_table, :house_table, :kids_table, :pets_table, :records_table, :plan_table, :prep_kit_table)
   end
 end
