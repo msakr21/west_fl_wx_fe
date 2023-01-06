@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_04_225857) do
+ActiveRecord::Schema.define(version: 2023_01_06_140420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "plans", force: :cascade do |t|
+    t.boolean "review_insurance_docs", default: false
+    t.boolean "check_evac_zone", default: false
+    t.boolean "evac_plan", default: false
+    t.boolean "check_evac_route", default: false
+    t.boolean "three_days_water", default: false
+    t.boolean "three_days_food", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -30,4 +43,5 @@ ActiveRecord::Schema.define(version: 2023_01_04_225857) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plans", "users"
 end
