@@ -8,9 +8,9 @@ FactoryBot.define do
     plan {true}
     records {true}
     prep_kit {true}
-    house {Faker::Boolean(true_ratio: 0.5)}
-    car {Faker::Boolean(true_ratio: 0.5)}
-    kids {Faker::Boolean(true_ratio: 0.5)}
-    pets {Faker::Boolean(true_ratio: 0.5)}
+    house {Faker::Boolean.boolean(true_ratio: 0.5)}
+    car {Faker::Boolean.boolean(true_ratio: 0.5)}
+    kids {Faker::Boolean.boolean(true_ratio: 0.5)}
+    pets {Faker::Boolean.boolean(true_ratio: 0.5)}
   end
 end
