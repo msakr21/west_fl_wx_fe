@@ -1,11 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe 'new user form page' do
-  it 'has fields for first name, last name, and email' do
-    visit '/'
-    click_link 'Register'
+RSpec.describe 'edit form page' do
+  before :each do
+    @test_user = User.create(id: 10, first_name: 'Mufasa', last_name: 'Skar', email: 'mskar@whatever.com')
+    allow(User).to receive(:current_user_by_with_conditional).and_return(@test_user)
+    allow(User).to receive(:current_user_by).and_return(@test_user)
+  end
 
-    expect(current_path).to eq('/users/new')
+  it 'has fields for first name, last name, and email' do
+    visit "/users/#{@test_user.id}/edit"
+
+   
     expect(page).to have_content("First name:")
     expect(page).to have_field("First name:")
     expect(page).to have_content("Last name:")
@@ -15,7 +20,7 @@ RSpec.describe 'new user form page' do
   end
 
   it 'has checkboxes for plan,car,house, prep kit, records, pets and kids,' do
-    visit '/users/new'
+    visit "/users/#{@test_user.id}/edit"
 
     expect(page).to have_unchecked_field('car_table')
     expect(page).to have_unchecked_field('house_table')
@@ -23,22 +28,19 @@ RSpec.describe 'new user form page' do
     expect(page).to have_unchecked_field('kids_table')
   end
 
-  xit 'fill in info and check applicable boxes,click submit, acct is created and i am taking to checklist page' do
-    visit '/users/new'
+  it 'fill in info and check applicable boxes,click submit, acct is created and i am taking to checklist page' do
+    visit "/users/#{@test_user.id}/edit"
 
-    fill_in "First name:", with: "Milo"
-    fill_in "Last name:", with: "Murphy"
-    fill_in "Email:", with: "m&m@whatever.com"
     check('car_table')
     check('house_table')
     expect(page).to have_unchecked_field('pets_table')
     expect(page).to have_unchecked_field('kids_table')
     click_button "Submit"
 
-    # expect(current_path).to eq(user_path(User.last))
-    expect(User.last.first_name).to eq("Milo")
-    expect(User.last.last_name).to eq("Murphy")
-    expect(User.last.email).to eq("m&m@whatever.com")
+    expect(current_path).to eq(user_path(User.last))
+    expect(User.last.first_name).to eq("Mufasa")
+    expect(User.last.last_name).to eq("Skar")
+    expect(User.last.email).to eq("mskar@whatever.com")
     expect(User.last.plan_table).to eq(true)
     expect(User.last.car_table).to eq(true)
     expect(User.last.house_table).to eq(true)
