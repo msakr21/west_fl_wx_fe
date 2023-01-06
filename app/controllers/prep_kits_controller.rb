@@ -1,21 +1,21 @@
-class PlansController < ApplicationController
+class PrepKitsController < ApplicationController
   def create
   end
 
   def update
-    plan = Plan.find(params[:id])
-    plan.update!(fixed_params)
+    prep_kit = PrepKits.find(params[:id])
+    prep_kit.update!(fixed_params)
   end
 
   private
 
-  def plan_params
-    params.require(:plan).permit(:review_insurance_docs, :check_evac_zone)
+  def prep_kit_params
+    params.require(:prep_kit).permit(...)
   end
 
   def fixed_params
     new_hash = Hash.new
-    plan_params.each do |k, v|
+    prep_kit_params.each do |k, v|
       if v == '1'
         new_hash[k] = true
       elsif v == '0'
