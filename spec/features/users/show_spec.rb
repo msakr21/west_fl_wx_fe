@@ -5,7 +5,7 @@ RSpec.describe 'Users show page' do
     before do
       @user_1 = create(:user, car_table: true, house_table: true)
       @user_2 = create(:user, kids_table: true, pets_table: true)
-      create(:plan, user: @user, review_insurance_docs: true)
+      create(:plan, user: @user_1, review_insurance_docs: true)
       visit user_path(@user_1)
     end
     describe "Then I see" do
