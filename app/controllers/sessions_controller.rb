@@ -1,8 +1,20 @@
 class SessionsController < ApplicationController
-  def create
-    user = User.find_or_create_by(user_params)
+  # def create
+  #   if User.find_by(email: user_params[:email]).nil?
+  #     user = User.create(user_params)
+  #     session[:user_id] = user.id
+  #     redirect_to '/users/new'
+  #   else
+  #     user = User.find_by(email: user_params[:email])
+  #     session[:user_id] = user.id
+  #     redirect_to '/users/show'
+  #   end
+  # end
+
+  def new
+    user = User.find_or_create_by(email: user_params[:email])
     session[:user_id] = user.id
-    redirect_to '/users/new'
+    redirect_to user_path(user)
   end
 
   private

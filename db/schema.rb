@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 2023_01_04_225857) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.boolean "plan"
-    t.boolean "prep_kit"
-    t.boolean "records"
-    t.boolean "car"
-    t.boolean "house"
-    t.boolean "kids"
-    t.boolean "pets"
+    t.boolean "plan", default: true
+    t.boolean "prep_kit", default: true
+    t.boolean "records", default: true
+    t.boolean "car", default: false
+    t.boolean "house", default: false
+    t.boolean "kids", default: false
+    t.boolean "pets", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
