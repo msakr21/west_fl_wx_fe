@@ -10,7 +10,6 @@ RSpec.describe 'Users show page' do
     describe "Then I see" do
       describe 'A checklist' do
         it 'That has manditory sections: "Plan", "Records", and "Prep Kit"' do
-          save_and_open_page
           within '#base-checklist' do
             expect(page).to have_content("Plan")
             expect(page).to have_content("Review Insurance Documents")
@@ -29,7 +28,7 @@ RSpec.describe 'Users show page' do
             check 'plan_check_evac_zone'
             click_button 'Update'
 
-            expect(@user.plan.check_evac_zone).to be(true)
+            expect(User.find(@user.id).plan.check_evac_zone).to be(true)
           end
         end
       end
