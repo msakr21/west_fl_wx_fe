@@ -7,10 +7,10 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.boolean :plan, default: true
       t.boolean :prep_kit, default: true
       t.boolean :records, default: true
-      t.boolean :car
-      t.boolean :house
-      t.boolean :kids
-      t.boolean :pets
+      t.boolean :car, default: false
+      t.boolean :house, default: false
+      t.boolean :kids, default: false
+      t.boolean :pets, default: false
       t.timestamps
     end
   end
