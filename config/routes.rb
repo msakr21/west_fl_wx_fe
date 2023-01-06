@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/sessions/new', to: 'sessions#new', as: :login
 
   resources :users, only: [:new, :create, :show]
+  resources :plan, only: [:create, :update]
 end

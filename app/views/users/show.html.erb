@@ -1,9 +1,15 @@
 <h1><%= @user.first_name %> Checklist </h1>
 
 <div id='base-checklist'>
-  <% if @user.plan? %>
+  <% if @user.plan_table %>
+    <h3>Plan</h3>
     <%=  form_with model: @user.plan, local: true do |f| %>
+      <%= f.check_box :review_insurance_docs %>
+      <%= f.label :review_insurance_docs, "Review Insurance Documents" %><br>
 
+      <%= f.check_box :check_evac_zone %>
+      <%= f.label :rcheck_evac_zone, "Check Evacuation Zone" %><br>
+      <%= f.submit "Update" %>
     <% end %>
   <% end %>
 </div>
