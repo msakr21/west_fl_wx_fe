@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
-  skip_before_action :check_login, only: [:create, :new]
   
-  def new
+  def edit
+    @user = User.find_by_id(session[:user_id])
+    @first_name = @user.first_name
+    @last_name = @user.last_name
+    @email = @user.email
   end
 
-  def create
-    user = User.create(user_params)
-    redirect_to "/auth/google_oauth2"
+  def update
+    user = User.find_by_id(session[:user_id])
+    user = User.update(user_params)
+    redirect_to user_path(user)
   end
 
   def show

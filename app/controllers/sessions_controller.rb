@@ -1,8 +1,15 @@
 class SessionsController < ApplicationController
+  skip_before_action :check_login, only: [:new]
   def new
-    user = User.find_or_create_by(email: user_params[:email])
-    session[:user_id] = user.id
-    redirect_to user_path(user)
+    if User.find_by(email: user_params[:email]).nil?
+      user = User.create(user_params)
+      session[:user_id] = user.id
+      redirect_to edit_user_path(user)
+    else
+      user = User.find_by(user_params)
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    end
   end
 
   private
