@@ -6,5 +6,6 @@ FactoryBot.define do
     check_evac_route { false }
     three_days_water { false }
     three_days_food { false }
+    association :user, factory: :user
   end
 end
