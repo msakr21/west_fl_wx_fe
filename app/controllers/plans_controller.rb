@@ -10,7 +10,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:review_insurance_docs, :check_evac_zone)
+    params.require(:plan).permit(:review_insurance_docs, :check_evac_zone, :evac_plan, :check_evac_route, :three_days_water, :three_days_food)
   end
 
   def fixed_params

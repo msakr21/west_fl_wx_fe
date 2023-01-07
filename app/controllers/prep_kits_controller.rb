@@ -10,7 +10,7 @@ class PrepKitsController < ApplicationController
   private
 
   def prep_kit_params
-    params.require(:prep_kit).permit(...)
+    params.require(:prep_kit).permit(:batteries, :first_aid_kit, :toiletries, :toiletries, :cash)
   end
 
   def fixed_params

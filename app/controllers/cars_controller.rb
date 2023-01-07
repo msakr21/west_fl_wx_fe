@@ -10,7 +10,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(...)
+    params.require(:car).permit(:gas, :maintenance)
   end
 
   def fixed_params

@@ -10,7 +10,7 @@ class KidsController < ApplicationController
   private
 
   def kid_params
-    params.require(:kid).permit(...)
+    params.require(:kid).permit(:medicine, :toys, :clothing, :medical_records)
   end
 
   def fixed_params

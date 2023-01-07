@@ -10,7 +10,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(...)
+    params.require(:house).permit(:trim_trees, :clear_yard, :shutters, :fill_bathtub)
   end
 
   def fixed_params

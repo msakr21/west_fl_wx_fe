@@ -10,7 +10,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(...)
+    params.require(:pet).permit(:medicine, :food, :food_water_bowls, :crate, :toys)
   end
 
   def fixed_params
