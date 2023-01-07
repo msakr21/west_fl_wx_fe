@@ -1,7 +1,4 @@
 class ApplicationController < ActionController::Base
-end
-
-class ApplicationController < ActionController::Base
 	before_action :check_login
 	helper_method :current_user, :logged_in?
 	# helper_method lets you use these in the view.
