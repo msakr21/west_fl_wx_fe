@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
-  def new
+  def edit
+    @user = User.current_user_by(session[:user_id])
+    @first_name = @user.first_name
+    @last_name = @user.last_name
+    @email = @user.email
   end
 
-  def create
-    user = User.create!(user_params)
+  def update
+    user = User.current_user_by(session[:user_id])
+    user = User.update(user_params)
     redirect_to user_path(user)
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.current_user_by(session[:user_id])
   end
 
   private
