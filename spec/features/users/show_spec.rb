@@ -23,13 +23,15 @@ RSpec.describe 'Users show page' do
           within '#base-checklist' do
             expect(page).to have_content("Plan")
             expect(page).to have_content("Review Insurance Documents")
+            expect(page).to have_button("Update Plan")
 
             expect(page).to have_content("Prep Kit")
             expect(page).to have_content("Extra batteries")
+            expect(page).to have_button("Update Prep Kit")
 
             expect(page).to have_content("Records")
             expect(page).to have_content("Government issued ID")
-            expect(page).to have_button("Update", count: 3)
+            expect(page).to have_button("Update Records")
           end
         end
 
@@ -37,12 +39,12 @@ RSpec.describe 'Users show page' do
           within '#house-checklist' do
             expect(page).to have_content("House")
             expect(page).to have_content("Trim trees")
-            expect(page).to have_button("Update")
+            expect(page).to have_button("Update House")
           end
           within '#car-checklist' do
             expect(page).to have_content("Car")
             expect(page).to have_content("Fill gas tank")
-            expect(page).to have_button("Update")
+            expect(page).to have_button("Update Car")
           end
         end
 
@@ -51,21 +53,32 @@ RSpec.describe 'Users show page' do
           within '#kids-checklist' do
             expect(page).to have_content("Kids")
             expect(page).to have_content("Toys")
-            expect(page).to have_button("Update")
+            expect(page).to have_button("Update Kids")
           end
           within '#pets-checklist' do
             expect(page).to have_content("Pets")
             expect(page).to have_content("Food and water bowls")
-            expect(page).to have_button("Update")
+            expect(page).to have_button("Update Pets")
           end
         end
         it 'When I check a box and click on "Update" that users plan is updated' do
           expect(@user_1.plan.check_evac_zone).to be(false)
+          expect(@user_1.prep_kit.batteries).to be(false)
+          expect(@user_1.record.medical).to be(false)
+
           within '#base-checklist' do
             check 'plan_check_evac_zone'
-            first(:button, "Update").click
+            click_button "Update Plan"
+
+            check 'prep_kit_batteries'
+            click_button "Update Prep Kit"
+
+            check 'record_medical'
+            click_button "Update Records"
 
             expect(User.find(@user_1.id).plan.check_evac_zone).to be(true)
+            expect(User.find(@user_1.id).prep_kit.batteries).to be(true)
+            expect(User.find(@user_1.id).record.medical).to be(true)
           end
         end
       end
