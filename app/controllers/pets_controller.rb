@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   def update
     pet = Pet.find(params[:id])
     pet.update!(fixed_params)
+    redirect_to user_path(pet.user_id)
   end
 
   private

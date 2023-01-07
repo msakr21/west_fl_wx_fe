@@ -3,8 +3,9 @@ class PrepKitsController < ApplicationController
   end
 
   def update
-    prep_kit = PrepKits.find(params[:id])
+    prep_kit = PrepKit.find(params[:id])
     prep_kit.update!(fixed_params)
+    redirect_to user_path(prep_kit.user_id)
   end
 
   private

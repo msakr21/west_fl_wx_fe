@@ -5,6 +5,7 @@ class KidsController < ApplicationController
   def update
     kid = Kid.find(params[:id])
     kid.update!(fixed_params)
+    redirect_to user_path(kid.user_id)
   end
 
   private

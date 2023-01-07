@@ -5,6 +5,7 @@ class HousesController < ApplicationController
   def update
     house = House.find(params[:id])
     house.update!(fixed_params)
+    redirect_to user_path(house.user_id)
   end
 
   private

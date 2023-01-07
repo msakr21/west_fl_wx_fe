@@ -5,6 +5,7 @@ class RecordsController < ApplicationController
   def update
     record = Record.find(params[:id])
     record.update!(fixed_params)
+    redirect_to user_path(record.user_id)
   end
 
   private

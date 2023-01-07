@@ -5,6 +5,7 @@ class PlansController < ApplicationController
   def update
     plan = Plan.find(params[:id])
     plan.update!(fixed_params)
+    redirect_to user_path(plan.user_id)
   end
 
   private
