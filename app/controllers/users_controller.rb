@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.current_user_by(session[:user_id])
+    @user = User.current_user_by(session[:user_id])
   end
 
   private
