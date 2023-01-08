@@ -107,7 +107,7 @@ RSpec.describe 'Users show page' do
 
         it 'When I check a box and click on "Update House" that users house is updated' do
           expect(@user_1.house.trim_trees).to be(false)
-
+          save_and_open_page
           within '#house-checklist' do
             check 'house_trim_trees'
             click_button "Update House"
