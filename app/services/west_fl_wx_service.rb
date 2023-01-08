@@ -3,7 +3,7 @@ class WestFLWXService
 		post_url("/api/v1/email?address=#{email}")
 	end
 
-	def get_url(url)
+	def post_url(url)
 		JSON.parse(conn.post(url).body, symbolize_names: true)
 	end
 
