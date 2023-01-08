@@ -1,4 +1,6 @@
 require 'rails_helper'
+require './app/services/west_fl_wx_service'
+require './app/facades/weather_facade'
 
 RSpec.describe 'Users show page' do
   describe 'When I visit /users/:id' do
@@ -107,7 +109,7 @@ RSpec.describe 'Users show page' do
 
         it 'When I check a box and click on "Update House" that users house is updated' do
           expect(@user_1.house.trim_trees).to be(false)
-          save_and_open_page
+
           within '#house-checklist' do
             check 'house_trim_trees'
             click_button "Update House"
@@ -159,6 +161,7 @@ RSpec.describe 'Users show page' do
       describe 'A "Check Weather" button' do
         context 'That when I press and an alert exists' do
           it 'A flash message is returned' do
+            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'Current Alerts in Your Area' })
 
             within '#check-wx' do
               click_button "Check Weather"
@@ -170,6 +173,8 @@ RSpec.describe 'Users show page' do
 
         context 'That when I press and there is NO alert' do
           it 'A flash message is returned' do
+            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'No Current Alerts' })
+
             within '#check-wx' do
               click_button "Check Weather"
             end
