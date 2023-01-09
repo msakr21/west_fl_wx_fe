@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'edit form page' do
   before :each do
-    @test_user = User.create(id: 10, first_name: 'Mufasa', last_name: 'Skar', email: 'mskar@whatever.com')
+    @test_user = create(:user)
     allow(User).to receive(:current_user_by_with_conditional).and_return(@test_user)
     allow(User).to receive(:current_user_by).and_return(@test_user)
   end
@@ -10,7 +10,6 @@ RSpec.describe 'edit form page' do
   it 'has fields for first name, last name, and email' do
     visit "/users/#{@test_user.id}/edit"
 
-   
     expect(page).to have_content("First name:")
     expect(page).to have_field("First name:")
     expect(page).to have_content("Last name:")
@@ -38,9 +37,9 @@ RSpec.describe 'edit form page' do
     click_button "Submit"
 
     expect(current_path).to eq(user_path(User.last))
-    expect(User.last.first_name).to eq("Mufasa")
-    expect(User.last.last_name).to eq("Skar")
-    expect(User.last.email).to eq("mskar@whatever.com")
+    expect(User.last.first_name).to eq(@test_user.first_name)
+    expect(User.last.last_name).to eq(@test_user.last_name)
+    expect(User.last.email).to eq(@test_user.email)
     expect(User.last.plan_table).to eq(true)
     expect(User.last.car_table).to eq(true)
     expect(User.last.house_table).to eq(true)
