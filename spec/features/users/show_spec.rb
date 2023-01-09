@@ -1,4 +1,6 @@
 require 'rails_helper'
+require './app/services/west_fl_wx_service'
+require './app/facades/weather_facade'
 
 RSpec.describe 'Users show page' do
   describe 'When I visit /users/:id' do
@@ -9,14 +11,19 @@ RSpec.describe 'Users show page' do
         create(:record, user: @user_1)
         create(:car, user: @user_1)
         create(:house, user: @user_1)
+
       @user_2 = create(:user, kids_table: true, pets_table: true, car_table: false, house_table: false)
         create(:plan, user: @user_2)
         create(:prep_kit, user: @user_2)
         create(:record, user: @user_2)
         create(:kid, user: @user_2)
         create(:pet, user: @user_2)
+
+      allow(User).to receive(:current_user_by_with_conditional).and_return(@user_1)
+      allow(User).to receive(:current_user_by).and_return(@user_1)
       visit user_path(@user_1)
     end
+
     describe "Then I see" do
       describe 'A checklist' do
         it 'That has manditory sections: "Plan", "Records", and "Prep Kit"' do
@@ -41,6 +48,7 @@ RSpec.describe 'Users show page' do
             expect(page).to have_content("Trim trees")
             expect(page).to have_button("Update House")
           end
+
           within '#car-checklist' do
             expect(page).to have_content("Car")
             expect(page).to have_content("Fill gas tank")
@@ -49,46 +57,130 @@ RSpec.describe 'Users show page' do
         end
 
         it 'That has optional sections, chosen by user: Kids and Pets' do
+          allow(User).to receive(:current_user_by_with_conditional).and_return(@user_2)
+          allow(User).to receive(:current_user_by).and_return(@user_2)
           visit user_path(@user_2)
+
           within '#kids-checklist' do
             expect(page).to have_content("Kids")
             expect(page).to have_content("Toys")
             expect(page).to have_button("Update Kids")
           end
+
           within '#pets-checklist' do
             expect(page).to have_content("Pets")
             expect(page).to have_content("Food and water bowls")
             expect(page).to have_button("Update Pets")
           end
         end
-        it 'When I check a box and click on "Update" that users plan is updated' do
+
+        it 'When I check a box and click on "Update Plan" that users plan is updated' do
           expect(@user_1.plan.check_evac_zone).to be(false)
-          expect(@user_1.prep_kit.batteries).to be(false)
-          expect(@user_1.record.medical).to be(false)
 
           within '#base-checklist' do
             check 'plan_check_evac_zone'
             click_button "Update Plan"
+          end
 
+          expect(User.find(@user_1.id).plan.check_evac_zone).to be(true)
+        end
+
+        it 'When I check a box and click on "Update Prep Kit" that users prep_kit is updated' do
+          expect(@user_1.prep_kit.batteries).to be(false)
+
+          within '#base-checklist' do
             check 'prep_kit_batteries'
             click_button "Update Prep Kit"
+          end
 
+          expect(User.find(@user_1.id).prep_kit.batteries).to be(true)
+        end
+
+        it 'When I check a box and click on "Update Records" that users record is updated' do
+          expect(@user_1.record.medical).to be(false)
+
+          within '#base-checklist' do
             check 'record_medical'
             click_button "Update Records"
-
-            expect(User.find(@user_1.id).plan.check_evac_zone).to be(true)
-            expect(User.find(@user_1.id).prep_kit.batteries).to be(true)
-            expect(User.find(@user_1.id).record.medical).to be(true)
           end
+
+          expect(User.find(@user_1.id).record.medical).to be(true)
+        end
+
+        it 'When I check a box and click on "Update House" that users house is updated' do
+          expect(@user_1.house.trim_trees).to be(false)
+
+          within '#house-checklist' do
+            check 'house_trim_trees'
+            click_button "Update House"
+          end
+
+          expect(User.find(@user_1.id).house.trim_trees).to be(true)
+        end
+
+        it 'When I check a box and click on "Update Car" that users car is updated' do
+          expect(@user_1.car.gas).to be(false)
+
+          within '#car-checklist' do
+            check 'car_gas'
+            click_button "Update Car"
+          end
+
+          expect(User.find(@user_1.id).car.gas).to be(true)
+        end
+
+        it 'When I check a box and click on "Update Kids" that users kid is updated' do
+          allow(User).to receive(:current_user_by_with_conditional).and_return(@user_2)
+          allow(User).to receive(:current_user_by).and_return(@user_2)
+          visit user_path(@user_2)
+          expect(@user_2.kid.toys).to be(false)
+
+          within '#kids-checklist' do
+            check 'kid_toys'
+            click_button "Update Kids"
+          end
+
+          expect(User.find(@user_2.id).kid.toys).to be(true)
+        end
+
+        it 'When I check a box and click on "Update Pets" that users pet is updated' do
+          allow(User).to receive(:current_user_by_with_conditional).and_return(@user_2)
+          allow(User).to receive(:current_user_by).and_return(@user_2)
+          visit user_path(@user_2)
+          expect(@user_2.pet.crate).to be(false)
+
+          within '#pets-checklist' do
+            check 'pet_crate'
+            click_button "Update Pets"
+          end
+
+          expect(User.find(@user_2.id).pet.crate).to be(true)
         end
       end
-      describe 'A "Check-WX button' do
+
+      describe 'A "Check Weather" button' do
         context 'That when I press and an alert exists' do
-          it 'A flash message is returned'
-          it 'An email is sent'
+          it 'A flash message is returned' do
+            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'Current Alerts in Your Area' })
+
+            within '#check-wx' do
+              click_button "Check Weather"
+            end
+
+            expect(page).to have_content('Current Alerts in Your Area')
+          end
         end
+
         context 'That when I press and there is NO alert' do
-          it 'A flash message is returned'
+          it 'A flash message is returned' do
+            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'No Current Alerts' })
+
+            within '#check-wx' do
+              click_button "Check Weather"
+            end
+
+            expect(page).to have_content('No Current Alerts')
+          end
         end
       end
     end

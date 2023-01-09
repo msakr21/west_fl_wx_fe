@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.current_user_by(session[:user_id])
+    if params[:email]
+      flash[:message] = WeatherFacade.new(params).message
+    end
   end
 
   private
