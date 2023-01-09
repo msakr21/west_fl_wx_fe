@@ -1,5 +1,7 @@
 class RecordsController < ApplicationController
   def create
+    record = Record.create!(fixed_params)
+    redirect_to user_path(record.user_id)
   end
 
   def update
@@ -11,13 +13,17 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:medical, :gov_id, :birth_cert)
+    params.require(:record).permit(:medical, :gov_id, :birth_cert, :user_id)
   end
 
   def fixed_params
     new_hash = Hash.new
     record_params.each do |k, v|
-      new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
+      if k != 'user_id'
+        new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
+      elsif k == 'user_id'
+        new_hash[k] = v
+      end
     end
     new_hash
   end
