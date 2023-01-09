@@ -9,8 +9,10 @@
         <div id='base-checklist'>
           <% if @user.plan_table %>
             <h3>Plan</h3>
-            <%=  form_with model: @user.plan, local: true do |f| %>
+            <%=  form_with model: @plan, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :review_insurance_docs %>
                 <%= f.label :review_insurance_docs, "Review Insurance Documents" %><br>
 
@@ -35,8 +37,10 @@
 
           <% if @user.prep_kit_table %>
             <h3>Prep Kit</h3>
-            <%=  form_with model: @user.prep_kit, local: true do |f| %>
+            <%=  form_with model: @prep_kit, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :batteries %>
                 <%= f.label :batteries, "Extra batteries" %><br>
 
@@ -55,8 +59,10 @@
 
           <% if @user.records_table %>
             <h3>Records</h3>
-            <%=  form_with model: @user.record, local: true do |f| %>
+            <%=  form_with model: @record, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :medical %>
                 <%= f.label :medical, "Medical records" %><br>
 
@@ -74,8 +80,10 @@
         <div class='checkbox' id='house-checklist'>
           <% if @user.house_table %>
             <h3>House</h3>
-            <%=  form_with model: @user.house, local: true do |f| %>
+            <%=  form_with model: @house, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :trim_trees %>
                 <%= f.label :trim_trees, "Trim trees" %><br>
 
@@ -96,8 +104,10 @@
         <div class='checkbox' id='car-checklist'>
           <% if @user.car_table %>
             <h3>Car</h3>
-            <%=  form_with model: @user.car, local: true do |f| %>
+            <%=  form_with model: @car, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :gas %>
                 <%= f.label :gas, "Fill gas tank" %><br>
 
@@ -112,8 +122,10 @@
         <div class='checkbox' id='kids-checklist'>
           <% if @user.kids_table %>
             <h3>Kids</h3>
-            <%=  form_with model: @user.kid, local: true do |f| %>
+            <%=  form_with model: @kid, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :medicine %>
                 <%= f.label :medicine, "Medicine" %><br>
 
@@ -134,8 +146,10 @@
         <div class='checkbox' id='pets-checklist'>
           <% if @user.pets_table %>
             <h3>Pets</h3>
-            <%=  form_with model: @user.pet, local: true do |f| %>
+            <%=  form_with model: @pet, local: true do |f| %>
               <div class='checkbox'>
+                <%= f.hidden_field :user_id, value: @user.id %>
+
                 <%= f.check_box :medicine %>
                 <%= f.label :medicine, "Medicine" %><br>
 

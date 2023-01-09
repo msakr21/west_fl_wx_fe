@@ -8,7 +8,7 @@ class WestFLWXService
 	end
 
 	def conn
-		Faraday.new(url: 'http://localhost:3000') do |f|
+		Faraday.new(url: 'http://localhost:5001') do |f|
 			f.adapter Faraday.default_adapter
 		end
 	end

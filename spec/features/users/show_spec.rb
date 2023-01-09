@@ -7,17 +7,8 @@ RSpec.describe 'Users show page' do
     before do
       @user_1 = create(:user, car_table: true, house_table: true, kids_table: false, pets_table: false)
         create(:plan, user: @user_1, review_insurance_docs: true)
-        create(:prep_kit, user: @user_1)
-        create(:record, user: @user_1)
-        create(:car, user: @user_1)
-        create(:house, user: @user_1)
 
       @user_2 = create(:user, kids_table: true, pets_table: true, car_table: false, house_table: false)
-        create(:plan, user: @user_2)
-        create(:prep_kit, user: @user_2)
-        create(:record, user: @user_2)
-        create(:kid, user: @user_2)
-        create(:pet, user: @user_2)
 
       allow(User).to receive(:current_user_by_with_conditional).and_return(@user_1)
       allow(User).to receive(:current_user_by).and_return(@user_1)
@@ -86,7 +77,7 @@ RSpec.describe 'Users show page' do
         end
 
         it 'When I check a box and click on "Update Prep Kit" that users prep_kit is updated' do
-          expect(@user_1.prep_kit.batteries).to be(false)
+          expect(@user_1.prep_kit).to be(nil)
 
           within '#base-checklist' do
             check 'prep_kit_batteries'
@@ -97,7 +88,7 @@ RSpec.describe 'Users show page' do
         end
 
         it 'When I check a box and click on "Update Records" that users record is updated' do
-          expect(@user_1.record.medical).to be(false)
+          expect(@user_1.record).to be(nil)
 
           within '#base-checklist' do
             check 'record_medical'
@@ -108,7 +99,7 @@ RSpec.describe 'Users show page' do
         end
 
         it 'When I check a box and click on "Update House" that users house is updated' do
-          expect(@user_1.house.trim_trees).to be(false)
+          expect(@user_1.house).to be(nil)
 
           within '#house-checklist' do
             check 'house_trim_trees'
@@ -119,7 +110,7 @@ RSpec.describe 'Users show page' do
         end
 
         it 'When I check a box and click on "Update Car" that users car is updated' do
-          expect(@user_1.car.gas).to be(false)
+          expect(@user_1.car).to be(nil)
 
           within '#car-checklist' do
             check 'car_gas'
@@ -133,7 +124,7 @@ RSpec.describe 'Users show page' do
           allow(User).to receive(:current_user_by_with_conditional).and_return(@user_2)
           allow(User).to receive(:current_user_by).and_return(@user_2)
           visit user_path(@user_2)
-          expect(@user_2.kid.toys).to be(false)
+          expect(@user_2.kid).to be(nil)
 
           within '#kids-checklist' do
             check 'kid_toys'
@@ -147,7 +138,7 @@ RSpec.describe 'Users show page' do
           allow(User).to receive(:current_user_by_with_conditional).and_return(@user_2)
           allow(User).to receive(:current_user_by).and_return(@user_2)
           visit user_path(@user_2)
-          expect(@user_2.pet.crate).to be(false)
+          expect(@user_2.pet).to be(nil)
 
           within '#pets-checklist' do
             check 'pet_crate'

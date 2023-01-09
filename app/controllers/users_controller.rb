@@ -7,13 +7,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.current_user_by(session[:user_id])
+    User.current_user_by(session[:user_id])
     user = User.update(user_params)
     redirect_to user_path(user)
   end
 
   def show
     @user = User.current_user_by(session[:user_id])
+    @car = @user.car || Car.new
+    @house = @user.house || House.new
+    @kid = @user.kid || Kid.new
+    @pet = @user.pet || Pet.new
+    @plan = @user.plan || Plan.new
+    @prep_kit = @user.prep_kit || PrepKit.new
+    @record = @user.record || Record.new
     if params[:email]
       flash[:message] = WeatherFacade.new(params).message
     end

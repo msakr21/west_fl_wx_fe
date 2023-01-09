@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
   def create
+    car = Car.create!(fixed_params)
+    redirect_to user_path(car.user_id)
   end
 
   def update
@@ -11,16 +13,16 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:gas, :maintenance)
+    params.require(:car).permit(:gas, :maintenance, :user_id)
   end
 
   def fixed_params
     new_hash = Hash.new
     car_params.each do |k, v|
-      if v == '1'
-        new_hash[k] = true
-      elsif v == '0'
-        new_hash[k] = false
+      if k != 'user_id'
+        new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
+      elsif k == 'user_id'
+        new_hash[k] = v
       end
     end
     new_hash

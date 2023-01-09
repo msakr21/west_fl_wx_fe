@@ -1,5 +1,7 @@
 class HousesController < ApplicationController
   def create
+    house = House.create!(fixed_params)
+    redirect_to user_path(house.user_id)
   end
 
   def update
@@ -11,16 +13,16 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:trim_trees, :clear_yard, :shutters, :fill_bathtub)
+    params.require(:house).permit(:trim_trees, :clear_yard, :shutters, :fill_bathtub, :user_id)
   end
 
   def fixed_params
     new_hash = Hash.new
     house_params.each do |k, v|
-      if v == '1'
-        new_hash[k] = true
-      elsif v == '0'
-        new_hash[k] = false
+      if k != 'user_id'
+        new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
+      elsif k == 'user_id'
+        new_hash[k] = v
       end
     end
     new_hash
