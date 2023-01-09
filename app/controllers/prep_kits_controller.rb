@@ -17,11 +17,7 @@ class PrepKitsController < ApplicationController
   def fixed_params
     new_hash = Hash.new
     prep_kit_params.each do |k, v|
-      if v == '1'
-        new_hash[k] = true
-      elsif v == '0'
-        new_hash[k] = false
-      end
+      new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
     end
     new_hash
   end
