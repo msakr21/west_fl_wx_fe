@@ -17,7 +17,7 @@ RSpec.describe 'Root page' do
   end
   
   it 'redirects to root page if user is not authenticated' do
-    test_user = User.create(id: 10, first_name: 'Mufasa', last_name: 'Skar', email: 'mskar@whatever.com')
+    test_user = create(:user)
 
     visit edit_user_path(test_user)
     expect(current_path).to eq('/')
