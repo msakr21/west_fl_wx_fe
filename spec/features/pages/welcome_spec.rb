@@ -21,8 +21,10 @@ RSpec.describe 'Root page' do
 
     visit edit_user_path(test_user)
     expect(current_path).to eq('/')
+    expect(page).to have_content('You must be logged in to view this content')
 
     visit user_path(test_user)
     expect(current_path).to eq('/')
+    expect(page).to have_content('You must be logged in to view this content')
   end
 end
