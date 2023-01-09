@@ -18,17 +18,21 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
   end
 
-  describe 'methods' do
-    it 'has a wrapper class method current_user_by(input) that allows us to find user by id and test around sessions' do
-      test_user = create(:user)
+  describe 'Class methods' do
+    describe '.current_user_by' do
+      it 'is a wrapper method that allows us to find user by id and test around sessions' do
+        test_user = create(:user)
 
-      expect(User.current_user_by(test_user.id)).to eq(test_user)
+        expect(User.current_user_by(test_user.id)).to eq(test_user)
+      end
     end
 
-    it 'has a wrapper class method current_user_by_with_conditional(input) that allows us to find user by id based on a condition and test around sessions' do
-      test_user = create(:user)
+    describe '.current_user_by_with_conditional' do
+      it 'is a wrapper method that allows us to find user by id as and test around sessions' do
+        test_user = create(:user)
 
-      expect(User.current_user_by_with_conditional(test_user.id)).to eq(test_user)
+        expect(User.current_user_by_with_conditional(test_user.id)).to eq(test_user)
+      end
     end
   end
 end
