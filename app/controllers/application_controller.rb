@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
 		@current_user ||= User.current_user_by_with_conditional(session[:user_id])
 	end
 
-	def current_admin?
-		current_user && current_user.admin?
-	end
-
 	def logged_in?
 		current_user != nil
 	end
