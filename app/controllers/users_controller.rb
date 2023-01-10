@@ -21,9 +21,9 @@ class UsersController < ApplicationController
     @plan = @user.plan || Plan.new
     @prep_kit = @user.prep_kit || PrepKit.new
     @record = @user.record || Record.new
-    if params[:email]
-      flash[:message] = WeatherFacade.new(params).message
-    end
+    return unless params[:email]
+
+    flash[:message] = WeatherFacade.new(params).message
   end
 
   private

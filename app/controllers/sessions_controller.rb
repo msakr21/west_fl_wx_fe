@@ -20,8 +20,8 @@ class SessionsController < ApplicationController
   end
 
   def user_params
-    {email: auth_hash['info']['email'],
-     first_name: auth_hash['info']['first_name'],
-     last_name: auth_hash['info']['last_name']}
+    { email: auth_hash['info']['email'],
+      first_name: auth_hash['info']['first_name'],
+      last_name: auth_hash['info']['last_name'] }
   end
 end

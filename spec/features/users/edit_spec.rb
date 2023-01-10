@@ -10,12 +10,12 @@ RSpec.describe 'edit form page' do
   it 'has fields for first name, last name, and email' do
     visit "/users/#{@test_user.id}/edit"
 
-    expect(page).to have_content("First name:")
-    expect(page).to have_field("First name:")
-    expect(page).to have_content("Last name:")
-    expect(page).to have_field("Last name:")
-    expect(page).to have_content("Email:")
-    expect(page).to have_field("Email:")
+    expect(page).to have_content('First name:')
+    expect(page).to have_field('First name:')
+    expect(page).to have_content('Last name:')
+    expect(page).to have_field('Last name:')
+    expect(page).to have_content('Email:')
+    expect(page).to have_field('Email:')
   end
 
   it 'has checkboxes for plan,car,house, prep kit, records, pets and kids,' do
@@ -34,7 +34,7 @@ RSpec.describe 'edit form page' do
     check('house_table')
     expect(page).to have_unchecked_field('pets_table')
     expect(page).to have_unchecked_field('kids_table')
-    click_button "Submit"
+    click_button 'Submit'
 
     expect(current_path).to eq(user_path(User.last))
     expect(User.last.first_name).to eq(@test_user.first_name)

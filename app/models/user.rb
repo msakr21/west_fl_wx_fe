@@ -7,14 +7,14 @@ class User < ApplicationRecord
   has_one :prep_kit, dependent: :destroy
   has_one :record, dependent: :destroy
 
-  validates_presence_of :first_name, :last_name, :email
-  validates_uniqueness_of :email
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true
 
   def self.current_user_by_with_conditional(input)
-    find_by_id(input) if input
+    find_by(id: input) if input
   end
 
   def self.current_user_by(input)
-    find_by_id(input)
+    find_by(id: input)
   end
 end
