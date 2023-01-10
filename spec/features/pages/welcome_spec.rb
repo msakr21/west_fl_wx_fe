@@ -15,7 +15,7 @@ RSpec.describe 'Root page' do
     visit '/'
     expect(page).to have_link('Login')
   end
-  
+
   it 'redirects to root page if user is not authenticated' do
     test_user = create(:user)
 

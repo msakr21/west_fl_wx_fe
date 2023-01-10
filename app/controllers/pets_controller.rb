@@ -17,7 +17,7 @@ class PetsController < ApplicationController
   end
 
   def fixed_params
-    new_hash = Hash.new
+    new_hash = {}
     pet_params.each do |k, v|
       if k != 'user_id'
         new_hash[k] = ActiveModel::Type::Boolean.new.cast(v)
