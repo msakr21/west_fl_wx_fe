@@ -17,7 +17,7 @@ RSpec.describe 'Users show page' do
 
     describe 'Then I see' do
       describe 'A checklist' do
-        it 'That has manditory sections: "Plan", "Records", and "Prep Kit"' do
+        it 'That has mandatory sections: "Plan", "Records", and "Prep Kit"' do
           within '#base-checklist' do
             expect(page).to have_content('Plan')
             expect(page).to have_content('Review Insurance Documents')

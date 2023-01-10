@@ -1,7 +1,7 @@
 require 'rails_helper'
 require './app/services/west_fl_wx_service'
 
-# All tests x'ed out untill backend is ready
+# All tests x'ed out until backend is ready
 RSpec.describe WestFLWXService do
   before do
     @service = WestFLWXService.new
