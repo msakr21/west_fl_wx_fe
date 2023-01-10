@@ -1,5 +1,5 @@
 class WestFLWXService
-  def querry(email)
+  def query(email)
     post_url("/api/v1/email?address=#{email}")
   end
 

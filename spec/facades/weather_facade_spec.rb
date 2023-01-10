@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe WeatherFacade do
   before do
-    allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'No Current Alerts' })
+    allow_any_instance_of(WestFLWXService).to receive(:query).and_return({ data: 'No Current Alerts' })
     params = { email: 'email' }
     @facade = WeatherFacade.new(params)
     @facade.message

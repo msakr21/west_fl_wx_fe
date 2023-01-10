@@ -10,7 +10,7 @@ class WeatherFacade
   end
 
   def results
-    @_results ||= service.querry(@params[:email])
+    @_results ||= service.query(@params[:email])
   end
 
   def service

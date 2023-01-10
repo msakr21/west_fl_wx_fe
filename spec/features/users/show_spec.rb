@@ -152,7 +152,7 @@ RSpec.describe 'Users show page' do
       describe 'A "Check Weather" button' do
         context 'That when I press and an alert exists' do
           it 'A flash message is returned' do
-            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'Current Alerts in Your Area' })
+            allow_any_instance_of(WestFLWXService).to receive(:query).and_return({ data: 'Current Alerts in Your Area' })
 
             within '#check-wx' do
               click_button 'Check Weather'
@@ -164,7 +164,7 @@ RSpec.describe 'Users show page' do
 
         context 'That when I press and there is NO alert' do
           it 'A flash message is returned' do
-            allow_any_instance_of(WestFLWXService).to receive(:querry).and_return({ data: 'No Current Alerts' })
+            allow_any_instance_of(WestFLWXService).to receive(:query).and_return({ data: 'No Current Alerts' })
 
             within '#check-wx' do
               click_button 'Check Weather'

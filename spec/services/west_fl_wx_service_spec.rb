@@ -8,9 +8,9 @@ RSpec.describe WestFLWXService do
   end
 
   describe 'instance_methods' do
-    describe '#querry' do
+    describe '#query' do
       xit 'returns a JSON object from API' do
-        return_body = @service.querry('email')
+        return_body = @service.query('email')
         expect(return_body).to be_a(Hash)
         expect(return_body[:data]).to be_a(String)
       end
