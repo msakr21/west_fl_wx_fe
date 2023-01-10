@@ -18,15 +18,19 @@ RSpec.describe 'Users show page' do
     describe 'Then I see' do
       describe 'A checklist' do
         it 'That has mandatory sections: "Plan", "Records", and "Prep Kit"' do
-          within '#base-checklist' do
+          within '#plan-checklist' do
             expect(page).to have_content('Plan')
             expect(page).to have_content('Review Insurance Documents')
             expect(page).to have_button('Update Plan')
+          end
 
+          within '#prep-checklist' do
             expect(page).to have_content('Prep Kit')
             expect(page).to have_content('Extra batteries')
             expect(page).to have_button('Update Prep Kit')
+          end
 
+          within '#record-checklist' do
             expect(page).to have_content('Records')
             expect(page).to have_content('Government issued ID')
             expect(page).to have_button('Update Records')
@@ -68,7 +72,7 @@ RSpec.describe 'Users show page' do
         it 'When I check a box and click on "Update Plan" that users plan is updated' do
           expect(@user_1.plan.check_evac_zone).to be(false)
 
-          within '#base-checklist' do
+          within '#plan-checklist' do
             check 'plan_check_evac_zone'
             click_button 'Update Plan'
           end
@@ -79,7 +83,7 @@ RSpec.describe 'Users show page' do
         it 'When I check a box and click on "Update Prep Kit" that users prep_kit is updated' do
           expect(@user_1.prep_kit).to be(nil)
 
-          within '#base-checklist' do
+          within '#prep-checklist' do
             check 'prep_kit_batteries'
             click_button 'Update Prep Kit'
           end
@@ -90,7 +94,7 @@ RSpec.describe 'Users show page' do
         it 'When I check a box and click on "Update Records" that users record is updated' do
           expect(@user_1.record).to be(nil)
 
-          within '#base-checklist' do
+          within '#record-checklist' do
             check 'record_medical'
             click_button 'Update Records'
           end
@@ -171,6 +175,20 @@ RSpec.describe 'Users show page' do
             end
 
             expect(page).to have_content('No Current Alerts')
+          end
+        end
+      end
+
+      describe 'A "Edit Profile" button' do
+        context 'That when I press' do
+          it 'redirects to /users/:id/edit' do
+            visit "/users/#{@user_1.id}"
+
+            within '#edit-profile' do
+              click_button 'Edit Profile'
+            end
+
+            expect(current_path).to eq("/users/#{@user_1.id}/edit")
           end
         end
       end
