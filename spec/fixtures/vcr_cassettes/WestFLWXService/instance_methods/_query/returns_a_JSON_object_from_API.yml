@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:5001/api/v1/alert_mailer?email=email&name=name
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.2
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"22c65e4c6a5cf9f944a89ac23d2aa824"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1fa42809-9353-430a-87c2-8ad255d62bb1
+      X-Runtime:
+      - '0.256423'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":"No Current Alerts"}'
+  recorded_at: Tue, 10 Jan 2023 23:45:00 GMT
+recorded_with: VCR 6.1.0

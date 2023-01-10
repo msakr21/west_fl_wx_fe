@@ -4,7 +4,7 @@
     <div class='box'>
       <div class='item'>
         <div id='check-wx'>
-          <%= button_to "Check Weather", user_path(@user), method: :get, params: { email: @user.email }, class: 'button1' %>
+          <%= button_to "Check Weather", user_path(@user), method: :get, params: { email: @user.email, name: "#{@user.first_name} #{@user.last_name}"}, class: 'button1' %>
         </div>
       </div>
       <div class='item'>

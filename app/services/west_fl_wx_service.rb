@@ -1,6 +1,6 @@
 class WestFLWXService
-  def query(email)
-    post_url("/api/v1/users?address=#{email}")
+  def query(email, name)
+    post_url("/api/v1/alert_mailer?email=#{email}&name=#{name}")
   end
 
   def post_url(url)
