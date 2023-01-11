@@ -1,4 +1,7 @@
-<h1>Confirm Information Form</h1>
+
+
+<h1 class="text-white-50 mx-auto mt-2 mb-5">Confirm Information Form</h1>
+
 <%= form_with url: "/users/#{@user.id}", local: true, method: :patch do |form| %>
   <p><%= form.label :first_name, "First name:" %>
   <%= form.text_field :first_name, value: @first_name%>

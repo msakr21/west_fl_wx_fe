@@ -9,7 +9,7 @@ RSpec.describe 'edit form page' do
 
   it 'has fields for first name, last name, and email' do
     visit "/users/#{@test_user.id}/edit"
-
+    save_and_open_page
     expect(page).to have_content('First name:')
     expect(page).to have_field('First name:')
     expect(page).to have_content('Last name:')
