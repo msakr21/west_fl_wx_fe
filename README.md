@@ -59,9 +59,15 @@ West FL WX is a Rails web application and e-mail service.
 
 MVP
 
-* [ ] Create DB for user and checklist
-* [ ] Complete user stories
-* [ ] OAuth with Google
+* [x] Create User parent table
+* [x] Create Plan, Records, Prep Kit, Kids, Cars, Houses and Pets child tables
+* [x] Create Root, Edit User and Show User view pages
+* [x] Implement adaptive lists in Show User view page to reflect user selections
+* [x] Implement OAuth with Google using OAuth 2.0
+* [x] Implement authorization for access to Edit and Show User pages 
+* [x] Implement API request to our BE service
+* [x] Add css for a consistent professional look across all pages
+* [ ] Deploy to Heroku
 
 Stretch Goals
 
