@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9e5147-3b77-4e2e-b907-c0f1bd68283c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/fixtures/vcr_cassettes/WestFLWXService/instance_methods/_post_url/returns_JSON_hash_from_response_body.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/fixtures/vcr_cassettes/WestFLWXService/instance_methods/_query/returns_a_JSON_object_from_API.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/pull_request_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/pull_request_template.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/facades/weather_facade.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/facades/weather_facade.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/west_fl_wx_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/west_fl_wx_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/facades/weather_facade_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/facades/weather_facade_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/features/users/edit_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/features/users/edit_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/features/users/show_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/features/users/show_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/services/west_fl_wx_service_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/services/west_fl_wx_service_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/features/pages/welcome_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/features/pages/welcome_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +321,7 @@
       <workItem from="1673455275045" duration="30000" />
       <workItem from="1673455309465" duration="206000" />
       <workItem from="1673455577971" duration="1046000" />
-      <workItem from="1673457588228" duration="376000" />
+      <workItem from="1673457588228" duration="624000" />
     </task>
     <servers />
   </component>
