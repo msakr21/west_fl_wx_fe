@@ -96,7 +96,7 @@ BE: https://github.com/Consultancy-2208/west_fl_wx_be <br />
 1. Start both servers (in terminal: rails s)
 1. Visit: localhost:3000/ on your browser and have fun!
 <br />
-**Heroku Deploment/Production:**
+**Production:**
 <br />
 FE: https://calm-peak-36563.herokuapp.com/<br />
 BE: https://stormy-harbor-06090.herokuapp.com/<br />
