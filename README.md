@@ -77,16 +77,16 @@ See the [open issues](https://github.com/Consultancy-2208/west_fl_wx_fe/issues) 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-**Repos:**
+<b>Repositories:</b>
 <br />
-FE: https://github.com/Consultancy-2208/west_fl_wx_fe <br />
-BE: https://github.com/Consultancy-2208/west_fl_wx_be <br />
+Front-End: https://github.com/Consultancy-2208/west_fl_wx_fe <br />
+Back-End: https://github.com/Consultancy-2208/west_fl_wx_be <br />
 
-**FE Repo Installation Instructions:**
-1. fork and clone repo to local
-1. bundle install
-1. bundle exec figaro install
-1. run rails db:{drop,create,migrate} in terminal
+<b>Front-End Repository Installation Instructions:</b>
+1. fork and clone repository to local
+1. in terminal, run: bundle install
+1. in terminal, run: bundle exec figaro install
+1. in terminal, run: rails db:{drop,create,migrate} in terminal
 1. set up a project and product via google console and set up credentials for OAuth 2.0, instructions: https://support.google.com/cloud/answer/6158849?hl=en#:~:text=Go%20to%20the%20Google%20API,the%20scopes%20your%20project%20uses.
 1. make sure to have profile and email selected in the scopes when setting up google oauth, if you need to edit you can do so from the OAuth consent screen
 1. still under credentials: make sure to add "http://localhost:3000/auth/google_oauth2/callback" as an authorised redirect URI 
@@ -98,8 +98,8 @@ BE: https://github.com/Consultancy-2208/west_fl_wx_be <br />
 <br />
 <b>Production:</b>
 <br />
-FE: https://calm-peak-36563.herokuapp.com/<br />
-BE: https://stormy-harbor-06090.herokuapp.com/<br />
+Front-End: https://calm-peak-36563.herokuapp.com/<br />
+Back-End: https://stormy-harbor-06090.herokuapp.com/<br />
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
