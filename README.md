@@ -14,8 +14,6 @@
 
   <h3 align="center">
     Get the info you need in severe weather!
-    <br />
-    <a href="https://github.com/Consultancy-2208/west_fl_wx_fe"><strong>View Demo</strong></a>
   </h3>
 </div>
 
@@ -40,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Demo][product-demo]](lib/assets/demo.gif)
+![Product Demo](lib/assets/demo.gif)
 
 Getting reliable information in an emergency is critical to your safety. West FL WX is a service that seeks to collect the most up-to-date weather forecast, road conditions, and emergency information from your local leaders. This information will be sent to you via e-mail so it can be saved on your local device in the event of power or internet outages. This will ensure you always have the information you need in an emergency.
 
