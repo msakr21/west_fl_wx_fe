@@ -8,7 +8,6 @@ class CarsController < ApplicationController
     car = Car.find(params[:id])
     car.update!(fixed_params)
     redirect_to user_path(car.user_id)
-
   end
 
   private
