@@ -8,9 +8,9 @@ class WestFLWXService
   end
 
   def conn
+    # Faraday.new(url: 'http://localhost:5001') do |f|
     Faraday.new(url: 'https://stormy-harbor-06090.herokuapp.com/') do |f|
       f.adapter Faraday.default_adapter
     end
   end
 end
-
