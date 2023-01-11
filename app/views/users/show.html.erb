@@ -4,166 +4,185 @@
     <div class='box'>
       <div class='item'>
         <div id='check-wx'>
-          <%= button_to "Check Weather", user_path(@user), method: :get, params: { email: @user.email }, class: 'button1' %>
+          <%= button_to "Check Weather", user_path(@user), method: :get, params: { email: @user.email, name: "#{@user.first_name} #{@user.last_name}"}, class: 'button1' %>
         </div>
-        <div id='base-checklist'>
+      </div>
+      <div class='item'>
+        <div id='edit-profile'>
+          <%= button_to "Edit Profile", edit_user_path(@user), method: :get, class: 'button2' %>
+        </div>
+        <div class="flex-container">
           <% if @user.plan_table %>
-            <h3>Plan</h3>
-            <%=  form_with model: @plan, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div id='plan-checklist'>
+                <h3>Plan</h3>
+                <%=  form_with model: @plan, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :review_insurance_docs %>
-                <%= f.label :review_insurance_docs, "Review Insurance Documents" %><br>
+                    <%= f.check_box :review_insurance_docs %>
+                    <%= f.label :review_insurance_docs, "Review Insurance Documents" %><br>
 
-                <%= f.check_box :check_evac_zone %>
-                <%= f.label :check_evac_zone, "Check Evacuation Zone" %><br>
+                    <%= f.check_box :check_evac_zone %>
+                    <%= f.label :check_evac_zone, "Check Evacuation Zone" %><br>
 
-                <%= f.check_box :evac_plan %>
-                <%= f.label :evac_plan, "Have a plan incase you have to evacuate" %><br>
+                    <%= f.check_box :evac_plan %>
+                    <%= f.label :evac_plan, "Have a plan incase you have to evacuate" %><br>
 
-                <%= f.check_box :check_evac_route %>
-                <%= f.label :check_evac_route, "Know your evacuation route" %><br>
+                    <%= f.check_box :check_evac_route %>
+                    <%= f.label :check_evac_route, "Know your evacuation route" %><br>
 
-                <%= f.check_box :three_days_water %>
-                <%= f.label :three_days_water, "Have three days of water" %><br>
+                    <%= f.check_box :three_days_water %>
+                    <%= f.label :three_days_water, "Have three days of water" %><br>
 
-                <%= f.check_box :three_days_food %>
-                <%= f.label :three_days_food, "Have three days of food" %><br>
+                    <%= f.check_box :three_days_food %>
+                    <%= f.label :three_days_food, "Have three days of food" %><br>
+                  </div>
+                  <%= f.submit "Update Plan", class: 'button1' %>
+                <% end %>
               </div>
-              <%= f.submit "Update Plan", class: 'button1' %>
-            <% end %>
+            </div>
           <% end %>
-
           <% if @user.prep_kit_table %>
-            <h3>Prep Kit</h3>
-            <%=  form_with model: @prep_kit, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='prep-checklist'>
+                <h3>Prep Kit</h3>
+                <%=  form_with model: @prep_kit, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :batteries %>
-                <%= f.label :batteries, "Extra batteries" %><br>
+                    <%= f.check_box :batteries %>
+                    <%= f.label :batteries, "Extra batteries" %><br>
 
-                <%= f.check_box :first_aid_kit %>
-                <%= f.label :first_aid_kit, "First aid kit" %><br>
+                    <%= f.check_box :first_aid_kit %>
+                    <%= f.label :first_aid_kit, "First aid kit" %><br>
 
-                <%= f.check_box :toiletries %>
-                <%= f.label :toiletries, "Toiletries" %><br>
+                    <%= f.check_box :toiletries %>
+                    <%= f.label :toiletries, "Toiletries" %><br>
 
-                <%= f.check_box :cash %>
-                <%= f.label :cash, "Cash" %><br>
-                <%= f.submit "Update Prep Kit", class: 'button1' %>
+                    <%= f.check_box :cash %>
+                    <%= f.label :cash, "Cash" %><br>
+                    <%= f.submit "Update Prep Kit", class: 'button1' %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
-
           <% if @user.records_table %>
-            <h3>Records</h3>
-            <%=  form_with model: @record, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='record-checklist'>
+              <h3>Records</h3>
+                <%=  form_with model: @record, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :medical %>
-                <%= f.label :medical, "Medical records" %><br>
+                    <%= f.check_box :medical %>
+                    <%= f.label :medical, "Medical records" %><br>
 
-                <%= f.check_box :gov_id %>
-                <%= f.label :gov_id, "Government issued ID" %><br>
+                    <%= f.check_box :gov_id %>
+                    <%= f.label :gov_id, "Government issued ID" %><br>
 
-                <%= f.check_box :birth_cert %>
-                <%= f.label :birth_cert, "Birth Certificate" %><br>
-                <%= f.submit "Update Records", class: 'button1' %>
+                    <%= f.check_box :birth_cert %>
+                    <%= f.label :birth_cert, "Birth Certificate" %><br>
+                    <%= f.submit "Update Records", class: 'button1' %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-
-        <div class='checkbox' id='house-checklist'>
           <% if @user.house_table %>
-            <h3>House</h3>
-            <%=  form_with model: @house, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='house-checklist'>
+                <h3>House</h3>
+                <%=  form_with model: @house, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :trim_trees %>
-                <%= f.label :trim_trees, "Trim trees" %><br>
+                    <%= f.check_box :trim_trees %>
+                    <%= f.label :trim_trees, "Trim trees" %><br>
 
-                <%= f.check_box :clear_yard %>
-                <%= f.label :clear_yard, "Clear the yard of debris" %><br>
+                    <%= f.check_box :clear_yard %>
+                    <%= f.label :clear_yard, "Clear the yard of debris" %><br>
 
-                <%= f.check_box :shutters %>
-                <%= f.label :shutters, "Put up storm shutters" %><br>
+                    <%= f.check_box :shutters %>
+                    <%= f.label :shutters, "Put up storm shutters" %><br>
 
-                <%= f.check_box :fill_bathtub %>
-                <%= f.label :fill_bathtub, "Fill all bathtubs" %><br>
-                <%= f.submit "Update House", class: 'button1' %>
+                    <%= f.check_box :fill_bathtub %>
+                    <%= f.label :fill_bathtub, "Fill all bathtubs" %><br>
+                    <%= f.submit "Update House", class: 'button1' %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-
-        <div class='checkbox' id='car-checklist'>
           <% if @user.car_table %>
-            <h3>Car</h3>
-            <%=  form_with model: @car, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='car-checklist'>
+                <h3>Car</h3>
+                <%=  form_with model: @car, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :gas %>
-                <%= f.label :gas, "Fill gas tank" %><br>
+                    <%= f.check_box :gas %>
+                    <%= f.label :gas, "Fill gas tank" %><br>
 
-                <%= f.check_box :maintenance %>
-                <%= f.label :maintenance, "Take care of any outstanding maintenance" %><br>
-                <%= f.submit "Update Car", class: 'button1' %>
+                    <%= f.check_box :maintenance %>
+                    <%= f.label :maintenance, "Take care of any outstanding maintenance" %><br>
+                    <%= f.submit "Update Car", class: 'button1' %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-
-        <div class='checkbox' id='kids-checklist'>
           <% if @user.kids_table %>
-            <h3>Kids</h3>
-            <%=  form_with model: @kid, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='kids-checklist'>
+                <h3>Kids</h3>
+                <%=  form_with model: @kid, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :medicine %>
-                <%= f.label :medicine, "Medicine" %><br>
+                    <%= f.check_box :medicine %>
+                    <%= f.label :medicine, "Medicine" %><br>
 
-                <%= f.check_box :medical_records %>
-                <%= f.label :medical_records, "Medical records" %><br>
+                    <%= f.check_box :medical_records %>
+                    <%= f.label :medical_records, "Medical records" %><br>
 
-                <%= f.check_box :toys %>
-                <%= f.label :toys, "Toys" %><br>
+                    <%= f.check_box :toys %>
+                    <%= f.label :toys, "Toys" %><br>
 
-                <%= f.check_box :clothing %>
-                <%= f.label :clothing, "Clothing" %><br>
-                <%= f.submit "Update Kids", class: 'button1' %>
+                    <%= f.check_box :clothing %>
+                    <%= f.label :clothing, "Clothing" %><br>
+                    <%= f.submit "Update Kids", class: 'button1' %>
+                  </div>
+                </div>
               </div>
             <% end %>
           <% end %>
-        </div>
-
-        <div class='checkbox' id='pets-checklist'>
           <% if @user.pets_table %>
-            <h3>Pets</h3>
-            <%=  form_with model: @pet, local: true do |f| %>
-              <div class='checkbox'>
-                <%= f.hidden_field :user_id, value: @user.id %>
+            <div class='flex-item'>
+              <div class='checkbox' id='pets-checklist'>
+                <h3>Pets</h3>
+                <%=  form_with model: @pet, local: true do |f| %>
+                  <div class='checkbox'>
+                    <%= f.hidden_field :user_id, value: @user.id %>
 
-                <%= f.check_box :medicine %>
-                <%= f.label :medicine, "Medicine" %><br>
+                    <%= f.check_box :medicine %>
+                    <%= f.label :medicine, "Medicine" %><br>
 
-                <%= f.check_box :food %>
-                <%= f.label :food, "Food" %><br>
+                    <%= f.check_box :food %>
+                    <%= f.label :food, "Food" %><br>
 
-                <%= f.check_box :food_water_bowls %>
-                <%= f.label :food_water_bowls, "Food and water bowls" %><br>
+                    <%= f.check_box :food_water_bowls %>
+                    <%= f.label :food_water_bowls, "Food and water bowls" %><br>
 
-                <%= f.check_box :crate %>
-                <%= f.label :crate, "Crate" %><br>
-                <%= f.submit "Update Pets", class: 'button1' %>
+                    <%= f.check_box :crate %>
+                    <%= f.label :crate, "Crate" %><br>
+                    <%= f.submit "Update Pets", class: 'button1' %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>

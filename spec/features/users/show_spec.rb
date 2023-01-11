@@ -6,8 +6,6 @@ RSpec.describe 'Users show page' do
   describe 'When I visit /users/:id' do
     before do
       @user_1 = create(:user, car_table: true, house_table: true, kids_table: false, pets_table: false)
-      create(:plan, user: @user_1, review_insurance_docs: true)
-
       @user_2 = create(:user, kids_table: true, pets_table: true, car_table: false, house_table: false)
 
       allow(User).to receive(:current_user_by_with_conditional).and_return(@user_1)
@@ -18,15 +16,19 @@ RSpec.describe 'Users show page' do
     describe 'Then I see' do
       describe 'A checklist' do
         it 'That has mandatory sections: "Plan", "Records", and "Prep Kit"' do
-          within '#base-checklist' do
+          within '#plan-checklist' do
             expect(page).to have_content('Plan')
             expect(page).to have_content('Review Insurance Documents')
             expect(page).to have_button('Update Plan')
+          end
 
+          within '#prep-checklist' do
             expect(page).to have_content('Prep Kit')
             expect(page).to have_content('Extra batteries')
             expect(page).to have_button('Update Prep Kit')
+          end
 
+          within '#record-checklist' do
             expect(page).to have_content('Records')
             expect(page).to have_content('Government issued ID')
             expect(page).to have_button('Update Records')
@@ -66,9 +68,9 @@ RSpec.describe 'Users show page' do
         end
 
         it 'When I check a box and click on "Update Plan" that users plan is updated' do
-          expect(@user_1.plan.check_evac_zone).to be(false)
+          expect(@user_1.plan).to be(nil)
 
-          within '#base-checklist' do
+          within '#plan-checklist' do
             check 'plan_check_evac_zone'
             click_button 'Update Plan'
           end
@@ -79,7 +81,7 @@ RSpec.describe 'Users show page' do
         it 'When I check a box and click on "Update Prep Kit" that users prep_kit is updated' do
           expect(@user_1.prep_kit).to be(nil)
 
-          within '#base-checklist' do
+          within '#prep-checklist' do
             check 'prep_kit_batteries'
             click_button 'Update Prep Kit'
           end
@@ -90,7 +92,7 @@ RSpec.describe 'Users show page' do
         it 'When I check a box and click on "Update Records" that users record is updated' do
           expect(@user_1.record).to be(nil)
 
-          within '#base-checklist' do
+          within '#record-checklist' do
             check 'record_medical'
             click_button 'Update Records'
           end
@@ -116,7 +118,6 @@ RSpec.describe 'Users show page' do
             check 'car_gas'
             click_button 'Update Car'
           end
-
           expect(User.find(@user_1.id).car.gas).to be(true)
         end
 
@@ -146,6 +147,7 @@ RSpec.describe 'Users show page' do
           end
 
           expect(User.find(@user_2.id).pet.crate).to be(true)
+
         end
       end
 
@@ -173,6 +175,120 @@ RSpec.describe 'Users show page' do
             expect(page).to have_content('No Current Alerts')
           end
         end
+      end
+
+      describe 'A "Edit Profile" button' do
+        context 'That when I press' do
+          it 'redirects to /users/:id/edit' do
+            visit "/users/#{@user_1.id}"
+
+            within '#edit-profile' do
+              click_button 'Edit Profile'
+            end
+
+            expect(current_path).to eq("/users/#{@user_1.id}/edit")
+          end
+        end
+      end
+    end
+  end
+
+  describe "Updating current attributes" do
+    before :each do
+      @user_1 = create(:user, car_table: true, house_table: true, kids_table: true, pets_table: true)
+      @car = Car.create!( user_id: @user_1.id, maintenance: true)
+      @house = House.create!( user_id: @user_1.id )
+      @kid = Kid.create!( user_id: @user_1.id )
+      @pet = Pet.create!( user_id: @user_1.id )
+      @prep_kit = PrepKit.create!( user_id: @user_1.id )
+      @record = Record.create!( user_id: @user_1.id )
+      @plan = Plan.create!( user_id: @user_1.id )
+
+      allow(User).to receive(:current_user_by_with_conditional).and_return(@user_1)
+      allow(User).to receive(:current_user_by).and_return(@user_1)
+      visit user_path(@user_1)
+    end
+
+    describe "when the user has a car" do
+      it "can update the car" do
+        within '#car-checklist' do
+          check 'car_gas'
+          click_button 'Update Car'
+        end
+
+        expect(User.find(@user_1.id).car.gas).to be(true)
+      end
+    end
+
+    describe "when the user has a house" do
+      it 'can update the house' do
+
+        within '#house-checklist' do
+          check 'house_trim_trees'
+          click_button 'Update House'
+        end
+
+        expect(User.find(@user_1.id).house.trim_trees).to be(true)
+      end
+    end
+
+    describe "When the user has kids" do
+      it 'can update the kid' do
+
+        within '#kids-checklist' do
+          check 'kid_toys'
+          click_button 'Update Kids'
+        end
+
+        expect(User.find(@user_1.id).kid.toys).to be(true)
+      end
+    end
+
+    describe "When the user has kids" do
+      it 'can update the pet' do
+
+        within '#pets-checklist' do
+          check 'pet_medicine'
+          click_button 'Update Pets'
+        end
+
+        expect(User.find(@user_1.id).pet.medicine).to be(true)
+      end
+    end
+
+    describe "When the user has a prep kit" do
+      it 'can update the prep kit' do
+
+        within '#prep-checklist' do
+          check 'prep_kit_toiletries'
+          click_button 'Update Prep Kit'
+        end
+
+        expect(User.find(@user_1.id).prep_kit.toiletries).to be(true)
+      end
+    end
+
+    describe "When the user has records" do
+      it 'can update their records' do
+
+        within '#record-checklist' do
+          check 'record_medical'
+          click_button 'Update Records'
+        end
+
+        expect(User.find(@user_1.id).record.medical).to be(true)
+      end
+    end
+
+    describe "When the user has plan" do
+      it 'can update their plan' do
+
+        within '#plan-checklist' do
+          check 'plan_evac_plan'
+          click_button 'Update Plan'
+        end
+
+        expect(User.find(@user_1.id).plan.evac_plan).to be(true)
       end
     end
   end

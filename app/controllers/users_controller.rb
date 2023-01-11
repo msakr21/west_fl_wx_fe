@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.current_user_by(session[:user_id])
+    # binding.pry
     @car = @user.car || Car.new
     @house = @user.house || House.new
     @kid = @user.kid || Kid.new
