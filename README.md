@@ -67,7 +67,7 @@ MVP
 * [x] Implement authorization for access to Edit and Show User pages 
 * [x] Implement API request to our BE service
 * [x] Add css for a consistent professional look across all pages
-* [ ] Deploy to Heroku
+* [x] Deploy to Heroku
 
 Stretch Goals
 
@@ -79,8 +79,27 @@ See the [open issues](https://github.com/Consultancy-2208/west_fl_wx_fe/issues) 
 
 <!-- GETTING STARTED -->
 ## Getting Started
+Repos:
+FE: https://github.com/Consultancy-2208/west_fl_wx_fe
+BE: https://github.com/Consultancy-2208/west_fl_wx_be
 
-TBD (heroku link here)
+FE Repo Installation Instructions:
+1- fork and clone repo to local
+1- bundle install
+1- bundle exec figaro install
+1- run rails db:{drop,create,migrate} in terminal
+1- set up a project and product via google console and set up credentials for OAuth 2.0, instructions: https://support.google.com/cloud/answer/6158849?hl=en#:~:text=Go%20to%20the%20Google%20API,the%20scopes%20your%20project%20uses.
+1- make sure to have profile and email selected in the scopes when setting up google oauth, if you need to edit you can do so from the OAuth consent screen
+1- still under credentials: make sure to add "http://localhost:3000/auth/google_oauth2/callback" as an authorised redirect URI 
+1- Add your Google Client ID and Google Secret ID, found in the credentials section in APIs and services, to config/application.yml
+1- In app/services/west_fl_wx_service.rb, uncomment line 11 and comment line 12
+1- Set up BE repo (linked above)
+1- Start both servers (in terminal: rails s)
+1- Visit: localhost:3000/ on your browser and have fun!
+
+Heroku Deploment/Production:
+FE: https://calm-peak-36563.herokuapp.com/
+BE: https://stormy-harbor-06090.herokuapp.com/
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
