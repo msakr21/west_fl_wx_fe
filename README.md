@@ -77,11 +77,12 @@ See the [open issues](https://github.com/Consultancy-2208/west_fl_wx_fe/issues) 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-Repos:<br />
+**Repos:**
+<br />
 FE: https://github.com/Consultancy-2208/west_fl_wx_fe <br />
 BE: https://github.com/Consultancy-2208/west_fl_wx_be <br />
 
-FE Repo Installation Instructions:
+**FE Repo Installation Instructions:**
 1. fork and clone repo to local
 1. bundle install
 1. bundle exec figaro install
@@ -95,7 +96,8 @@ FE Repo Installation Instructions:
 1. Start both servers (in terminal: rails s)
 1. Visit: localhost:3000/ on your browser and have fun!
 <br />
-Heroku Deploment/Production:<br />
+**Heroku Deploment/Production:**
+<br />
 FE: https://calm-peak-36563.herokuapp.com/<br />
 BE: https://stormy-harbor-06090.herokuapp.com/<br />
 
