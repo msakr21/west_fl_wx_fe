@@ -80,7 +80,7 @@ See the [open issues](https://github.com/Consultancy-2208/west_fl_wx_fe/issues) 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-TBD (heroku link here)
+[TBD (heroku link here)](https://calm-peak-36563.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
