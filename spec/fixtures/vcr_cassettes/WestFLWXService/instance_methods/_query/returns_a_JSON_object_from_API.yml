@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:5001/api/v1/alert_mailer?email=email&name=name
+    uri: https://stormy-harbor-06090.herokuapp.com/api/v1/alert_mailer?email=email&name=name
     body:
       encoding: UTF-8
       string: ''
@@ -20,6 +20,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 13 Jan 2023 00:31:04 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
@@ -27,13 +33,15 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1fa42809-9353-430a-87c2-8ad255d62bb1
+      - 88be6fee-f25f-41e8-8bc0-ab5ddc935616
       X-Runtime:
-      - '0.256423'
+      - '1.102186'
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: '{"data":"No Current Alerts"}'
-  recorded_at: Tue, 10 Jan 2023 23:45:00 GMT
+  recorded_at: Fri, 13 Jan 2023 00:31:04 GMT
 recorded_with: VCR 6.1.0
