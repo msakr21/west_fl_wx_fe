@@ -1,8 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -25,7 +20,6 @@
       <li>
         <a href="#about-the-project">About The Project</a>
         <ul>
-          <li><a href="#heroku-information">Heroku Information</a></li>
           <li><a href="#built-with">Built With</a></li>
           <li><a href="#database-schema">Database Schema</a></li>
         </ul>
@@ -55,19 +49,6 @@ Getting reliable information in an emergency is critical to your safety. West FL
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Heroku Information -->
-### Heroku Information
-
-<b>To start, visit the link below and login or register:</b>
-
-* <a href="https://calm-peak-36563.herokuapp.com/">https://calm-peak-36563.herokuapp.com/</a><br>
-
-<b>The back-end application is hosted separately at the link below, although it offers no end-user interactions:</b>
-
-* <a href="https://stormy-harbor-06090.herokuapp.com/">https://stormy-harbor-06090.herokuapp.com/</a><br>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ### Built With
 
 West FL WX is a Rails web application and e-mail service.
@@ -88,13 +69,13 @@ The West FL WX application utilizes a one-to-many relationship to organize the u
 <!-- GETTING STARTED -->
 ## Getting Started
 
-West FL WX is deployed on Heroku utilizing two applications. The front-end application allows the user to login using Google OAuth, interact with the interface, and holds the database of user information. The back-end application handles the mailer and API calls.
+West FL WX is an application that was (but no longer is) deployed/hosted on Heroku utilizing two applications. The front-end application allows the user to login using Google OAuth, interact with the interface, and holds the database of user information. The back-end application handles the mailer and API calls.
 
 <!-- Repositories -->
 ### Repositories
 
-* <b>Front-End:</b> https://github.com/Consultancy-2208/west_fl_wx_fe <br />
-* <b>Back-End:</b> https://github.com/Consultancy-2208/west_fl_wx_be <br />
+* <b>Front-End:</b> https://github.com/msakr21/west_fl_wx_fe <br />
+* <b>Back-End:</b> https://github.com/msakr21/west_fl_wx_be <br />
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -124,7 +105,7 @@ The back-end application ties all functionality into a single endpoint request. 
 
 <b>An example request would be:</b>
 
-`https://stormy-harbor-06090.herokuapp.com/api/v1/alert_mailer?email=<your_email>&name=<your_name>`
+`localhost:5001/api/v1/alert_mailer?email=<your_email>&name=<your_name>`
 
 <b>An example response would be:</b>
 
