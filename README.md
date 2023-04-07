@@ -6,7 +6,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Consultancy-2208/west_fl_wx_fe">
+  <a href="https://github.com/msakr21/west_fl_wx_fe">
     <img src="lib/assets/consultancy.jpeg" alt="Logo" width="200" height="200">
   </a>
 
